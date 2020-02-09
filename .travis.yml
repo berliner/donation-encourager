@@ -24,3 +24,15 @@ script:
 before_deploy:
   - npm run prepare
   - npm run build_zip
+
+deploy:
+  - provider: releases
+    api_key:
+      secure: "RYI6ow+S8kXdlX0lPpu6an+n4RHMUbzSWorb1XrEDLi0tqyhCDepL+nZi0wlRndH9+NwINYYiCflKLrw9SVR/k/Dn5JhSUKAB0nc8tX0hRgMlWM2Adl6tM1DRbwSLiT8qLxdqkiAvBZKGNfTbOHMc2pM+m4M/nzpF68NvukiIIfxTvKrZkkmIU5By6T4s3ndgpUSRER41IT+mHOVtZrAyxNY0jnmoh6mvwpjnGYUMNGpTspbTEE4YzqeDS9z1SOEcoZeCfARBKwCmjZ9AXxaWTB3zBg5xVyYXaO+I9ZpLmSYkiZ3+79vb43uEuZdKEsaTxHn8Nxr00quuKlUkvP5cyjqHWI5Aq8pH42PxuejFrHOtYMLGXMpgu1Zq+pIddL2VMLh78jkltI/0ij9ylkJWyWY3ZypMvcgpcdtKJSyQ8lBrvLSJKRsDktAc0l3h7aAW+GMO6ce0il07MDry+n2K8hILiHlCS+PwK42wIpLHD5f+FCnpmjFT/GlOgWtw0iOVCqHTLyomqdFj89uL4q+YhliTUAxGPR0HWnD+OAT7zIM8g4DqxwDoRDpCMEhvUR3Ixl5PQWzC60auFvN3PRwKRXjT/9NO5l8ICOVnLSopp7OxuzDfilGfdocxwciuXTm9xLTHFgIhyxxmt6KePsWHm09mOO3LSgPjVwfjfYZ6Jo="
+    file:
+      - $BASE_NAME.zip
+      - $BASE_NAME.tar.gz
+    skip_cleanup: true
+    on:
+      repo: berliner/donation-encourager
+      tags: true
