@@ -11,7 +11,8 @@
     "format": "prettier --write \"src/**/*.js\"",
     "transpile": "babel src -d dist --copy-files",
     "babel-watch": "babel src --watch -d dist --copy-files --verbose",
-    "prepare": "npm run build && npm run transpile"
+    "prepare": "npm run build && npm run transpile",
+    "build_zip": "7z a -tzip $BASE_NAME.zip ./dist/* && 7z a -ttar $BASE_NAME.tar ./dist/* && 7z a $BASE_NAME.tar.gz $BASE_NAME.tar"
   },
   "repository": {
     "type": "git",
